@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Slack Workspace Switcher For All",
+  "description": "Liberate your Slack in browser with a workspace switcher known from Chrome OS / native apps!",
+  "version": "0.0.1",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon48.png"
+    },
+    "default_title": "Slack Workspace Switcher For All"
+  },
+  "permissions": ["https://app.slack.com/"],
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": ["content_script.js"],
+      "matches": ["https://app.slack.com/*"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "web_accessible_resources": ["images/*.*"]
+}
